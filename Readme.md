@@ -2,3 +2,5 @@
 
 **prototype**
 
+#
+DEBUG=jobwatch:* npm start 
