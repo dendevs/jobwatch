@@ -5,15 +5,19 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var jobs = require('./routes/jobs');
+var web_index = require('./routes/web/index');
+var web_users = require('./routes/web/users');
+var web_jobs = require('./routes/web/jobs');
+
+var api_jobs = require('./routes/api/jobs');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use('/css/bootstrap.min.css', express.static(__dirname + '/node_modules/bootstrap/dist/css/bootstrap.min.css') );
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -23,9 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/jobs', jobs);
+app.use('/', web_index);
+app.use('/users', web_users);
+app.use('/jobs', web_jobs);
+
+//app.use('/api/v1/jobs', api_jobs);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

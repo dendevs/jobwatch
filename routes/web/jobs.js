@@ -3,13 +3,12 @@ var router = express.Router();
 
 /* GET jobs listing. */
 router.get('/', function(req, res, next) {
-  res.send('list all jobs');
+  res.render('jobs', { title: 'Jobs' });
 });
 
-
-/* add job. */
-router.get('/add/', function(req, res, next) {
-  res.send('add a new job');
+/* Add a new job. */
+router.get('/add', function(req, res, next) {
+  res.render('jobs/add', { title: 'Ajout' });
 });
 
 /* GET job. */
@@ -18,9 +17,5 @@ router.get('/:id', function(req, res, next) {
 });
 
 
-/* POST job. */
-router.post('/', function(req, res, next) {
-  res.send('post a job');
-});
 
 module.exports = router;
