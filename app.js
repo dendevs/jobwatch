@@ -4,6 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cheerio = require('cheerio')
 
 
 /* routes */
@@ -19,6 +20,15 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+/* helpers */
+const hbs = require('hbs');
+hbs.registerHelper('select', function( value, options ){
+    const $ = cheerio.load(options.fn(this))
+    if( value )
+        $('[value='+value+']').attr('selected', 'selected');
+    return $.html();
+});
 
 /* css */
 app.use('/css/bulma.css', express.static(__dirname + '/node_modules/bulma/css/bulma.css') );
