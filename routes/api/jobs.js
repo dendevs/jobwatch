@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 /* GET jobs listing. */
 router.get('/', function(req, res, next) {
@@ -13,7 +13,7 @@ router.get('/:id', function(req, res, next) {
 
 /* POST job. */
 router.post('/', function(req, res, next) {
-  res.send('post a job');
+  res.send('post a job to api');
 });
 
 module.exports = router;

@@ -1,24 +1,29 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
-var web_index = require('./routes/web/index');
-var web_users = require('./routes/web/users');
-var web_jobs = require('./routes/web/jobs');
 
-var api_jobs = require('./routes/api/jobs');
+/* routes */
+const web_index = require('./routes/web/index');
+const web_users = require('./routes/web/users');
+const web_jobs = require('./routes/web/jobs');
 
-var app = express();
+const api_jobs = require('./routes/api/jobs');
+
+/* express */
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+/* css */
 app.use('/css/bulma.css', express.static(__dirname + '/node_modules/bulma/css/bulma.css') );
 
+/* middleware */
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -27,11 +32,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/* routes */
 app.use('/', web_index);
 app.use('/users', web_users);
 app.use('/jobs', web_jobs);
 
-//app.use('/api/v1/jobs', api_jobs);
+app.use('/api/v1/jobs', api_jobs);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

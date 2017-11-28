@@ -7,287 +7,300 @@
     </div>
 </section>
 
+<!-- Errors -->
+{{#if errors }}
+    <div class="notification is-warning">
+        <ul>
+        {{#each errors}}
+            <li>{{this.msg}}</li>
+        {{/each}}
+        </ul>
+    </div>
+{{/if}}
+
 <!-- Infos Générale -->
-<div class="box">
-    <h3 class="subtitle is-3">Employeur</h3>
-    <!-- Employeur -->
-    <div class="columns">
-        <div class="column">
-            <div class="field">
-                <label class="label">Nom</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
+<form method="post" action="/jobs/submit" enctype="multipart/form-data" >
+    <div class="box">
+        <h3 class="subtitle is-3">Employeur</h3>
+        <!-- Employeur -->
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Nom</label>
+                    <div class="control">
+                        <input class="input" type="text" name="name" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+            <!-- Site Web Employeur-->
+            <div class="column">
+                <div class="field">
+                    <label class="label">Site Web Employeur</label>
+                    <div class="control">
+                        <input class="input" type="text" name="website" placeholder="Text input">
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Site Web Employeur-->
-        <div class="column">
-            <div class="field">
-                <label class="label">Site Web Employeur</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
+        <!-- Intitule Job-->
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Intitule du Job *</label>
+                    <div class="control">
+                        <input class="input" type="text" name="jobTitle" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+            <!-- Url de l'Offre-->
+            <div class="column">
+                <div class="field">
+                    <label class="label">Url de l'Offre *</label>
+                    <div class="control">
+                        <input class="input" type="text" name="jobUrl" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Type Contract -->
+        <div class="field">
+            <label class="label">Type Contract</label>
+            <div class="control">
+                <div class="select">
+                    <select>
+                        <option>CDI</option>
+                        <option>CDD</option>
+                        <option>PFI</option>
+                        <option>Autres</option>
+                    </select>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Intitule Job-->
-    <div class="columns">
-        <div class="column">
-            <div class="field">
-                <label class="label">Intitule du Job</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
-            </div>
-        </div>
-        <!-- Url de l'Offre-->
-        <div class="column">
-            <div class="field">
-                <label class="label">Url de l'Offre</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
+
+    <!-- Technologies -->
+    <div class="box">
+        <h3 class="subtitle is-3">Technologies</h3>
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" name="php">
+                    Php
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="html">
+                    Html
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="cpp">
+                    C++
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="css">
+                    CSS 
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="java">
+                    Java 
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="css">
+                    SQL 
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="dotnet">
+                    .NET 
+                </label>
             </div>
         </div>
     </div>
-    <!-- Type Contract -->
-    <div class="field">
-        <label class="label">Type Contract</label>
+
+    <!-- Compétences -->
+    <div class="box">
+        <h3 class="subtitle is-3">Compétences</h3>
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" name="analyse">
+                    Analyse 
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="testing">
+                    Tests
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="teamworking">
+                    Travail en équipe
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="autonomy">
+                    Autonomie
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="writing">
+                    Rédaction 
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="english">
+                    Anglais
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="dutch">
+                    Néerlandais 
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adresse -->
+    <div class="box">
+        <h3 class="subtitle is-3">Adresse</h3>
+        <!-- Rue -->
+        <div class="field">
+            <label class="label">Rue</label>
+            <div class="control">
+                <input class="input" type="text" name="street" placeholder="Text input">
+            </div>
+        </div>
+        <!-- Numéro -->
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Numéro</label>
+                    <div class="control">
+                        <input class="input" type="text" name="number" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+            <!-- Boite -->
+            <div class="column">
+                <div class="field">
+                    <label class="label">Boite</label>
+                    <div class="control">
+                        <input class="input" type="text" name="postalBox" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Code Postal-->
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Code Postal</label>
+                    <div class="control">
+                        <input class="input" type="text" name="postalCode" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+            <!-- Ville -->
+            <div class="column">
+                <div class="field">
+                    <label class="label">Ville</label>
+                    <div class="control">
+                        <input class="input" type="text" name="city" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pays -->
+        <label class="label">Pays</label>
         <div class="control">
             <div class="select">
                 <select>
-                    <option>CDI</option>
-                    <option>CDD</option>
-                    <option>PFI</option>
-                    <option>Autres</option>
+                    <option>Belgique</option>
+                    <option>France</option>
+                    <option>Luxembourg</option>
                 </select>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Technologies -->
-<div class="box">
-    <h3 class="subtitle is-3">Technologies</h3>
-    <div class="field">
+    <!-- Contact -->
+    <div class="box">
+        <h3 class="subtitle is-3">Contact</h3>
+        <!-- Nom -->
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Nom</label>
+                    <div class="control">
+                        <input class="input" type="text" name="lastname" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+            <!-- Prenom -->
+            <div class="column">
+                <div class="field">
+                    <label class="label">Prenom</label>
+                    <div class="control">
+                        <input class="input" type="text" name="firstname" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Email -->
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="text" name="mail" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+            <!-- Tel/Gsm -->
+            <div class="column">
+                <div class="field">
+                    <label class="label">Tel/Gsm</label>
+                    <div class="control">
+                        <input class="input" type="text" name="gsm" placeholder="Text input">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidature -->
+    <div class="box">
+        <h3 class="subtitle is-3">Candidature</h3>
+        <!-- Documents Candidatures -->
+        <div class="field">
+            <label class="label">Documents pour Postuler</label>
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    CV
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Lettre Motivation
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Carte Identitée 
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Certificat Bonne Vie et Moeurs
+                </label>
+            </div>
+        </div>
+        <!-- Date Limite -->
+        <div class="field">
+            <label class="label">Date Limite Candidature </label>
+            <div class="control">
+                <input class="input" type="text" name="deadline" placeholder="Text input">
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="field is-grouped">
         <div class="control">
-            <label class="checkbox">
-                <input type="checkbox">
-                Php
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Html
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                C++
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                CSS 
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Java 
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                SQL 
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                .NET 
-            </label>
+            <button class="button is-text">Cancel</button>
         </div>
-    </div>
-</div>
-
-<!-- Compétences -->
-<div class="box">
-    <h3 class="subtitle is-3">Compétences</h3>
-    <div class="field">
         <div class="control">
-            <label class="checkbox">
-                <input type="checkbox">
-                Analyse 
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Tests
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Travail en équipe
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Autonomie
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Rédaction 
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Anglais
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Néerlandais 
-            </label>
+            <button class="button is-link">Submit</button>
         </div>
     </div>
-</div>
-
-<!-- Adresse -->
-<div class="box">
-    <h3 class="subtitle is-3">Adresse</h3>
-    <!-- Rue -->
-    <div class="field">
-        <label class="label">Rue</label>
-        <div class="control">
-            <input class="input" type="text" placeholder="Text input">
-        </div>
-    </div>
-    <!-- Numéro -->
-    <div class="columns">
-        <div class="column">
-            <div class="field">
-                <label class="label">Numéro</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
-            </div>
-        </div>
-        <!-- Boite -->
-        <div class="column">
-            <div class="field">
-                <label class="label">Boite</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Code Postal-->
-    <div class="columns">
-        <div class="column">
-            <div class="field">
-                <label class="label">Code Postal</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
-            </div>
-        </div>
-        <!-- Ville -->
-        <div class="column">
-            <div class="field">
-                <label class="label">Ville</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Pays -->
-    <label class="label">Pays</label>
-    <div class="control">
-        <div class="select">
-            <select>
-                <option>Belgique</option>
-                <option>France</option>
-                <option>Luxembourg</option>
-            </select>
-        </div>
-    </div>
-</div>
-
-<!-- Contact -->
-<div class="box">
-    <h3 class="subtitle is-3">Contact</h3>
-    <!-- Nom -->
-    <div class="columns">
-        <div class="column">
-            <div class="field">
-                <label class="label">Nom</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
-            </div>
-        </div>
-        <!-- Prenom -->
-        <div class="column">
-            <div class="field">
-                <label class="label">Prenom</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Email -->
-    <div class="columns">
-        <div class="column">
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
-            </div>
-        </div>
-        <!-- Tel/Gsm -->
-        <div class="column">
-            <div class="field">
-                <label class="label">Tel/Gsm</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Candidature -->
-<div class="box">
-    <h3 class="subtitle is-3">Candidature</h3>
-    <!-- Documents Candidatures -->
-    <div class="field">
-        <label class="label">Documents pour Postuler</label>
-        <div class="control">
-            <label class="checkbox">
-                <input type="checkbox">
-                CV
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Lettre Motivation
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Carte Identitée 
-            </label>
-            <label class="checkbox">
-                <input type="checkbox">
-                Certificat Bonne Vie et Moeurs
-            </label>
-        </div>
-    </div>
-    <!-- Date Limite -->
-    <div class="field">
-        <label class="label">Date Limite Candidature </label>
-        <div class="control">
-            <input class="input" type="text" placeholder="Text input">
-        </div>
-    </div>
-</div>
-
-<!-- Submit -->
-<div class="field is-grouped">
-    <div class="control">
-        <button class="button is-text">Cancel</button>
-    </div>
-    <div class="control">
-        <button class="button is-link">Submit</button>
-    </div>
-</div>
+</form>
