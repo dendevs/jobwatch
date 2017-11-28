@@ -21,11 +21,12 @@ router.get('/:id', function(req, res, next) {
 
 /* Submit */
 router.post('/submit', [
-    check('jobTitle').exists().withMessage('Le champ "Intitulé du Job" est obligatoire.'),
-    check('jobUrl').exists().withMessage("Le champ \"Url de l'Offre\" est obligatoire."),
+    check('jobTitle').exists().custom( (value, {req} ) => typeof value == 'string' && value.length()>1 ).withMessage('Le champ "Intitulé du Job" est obligatoire.'),
+    check('jobUrl').exists().custom( (value, {req} ) => typeof value == 'string' && value.length()>1 ).withMessage("Le champ \"Url de l'Offre\" est obligatoire."),
     check('email').isEmail().withMessage('Le champ "Email" du contact doit etre un email.').trim().normalizeEmail(),
     ], function(req, res, next) {
 
+        console.log( req.body.jobTitle );
     const errors = validationResult(req);
     if( errors.isEmpty() ) 
     {
