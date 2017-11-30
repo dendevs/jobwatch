@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cheerio = require('cheerio')
+const mongoose = require('mongoose');
 
 
 /* routes */
@@ -13,6 +14,13 @@ const web_users = require('./routes/web/users');
 const web_jobs = require('./routes/web/jobs');
 
 const api_jobs = require('./routes/api/jobs');
+
+/* db */
+mongoose.connect('mongodb://localhost:27017/jobwatch');
+require( './models/Job.js' );
+require( './models/Document.js' );
+require( './models/Technology.js' );
+require( './models/Skill.js' );
 
 /* express */
 const app = express();
@@ -45,6 +53,11 @@ hbs.registerHelper('checkbox', function( value, options ){
 
 /* css */
 app.use('/css/bulma.css', express.static(__dirname + '/node_modules/bulma/css/bulma.css') );
+app.use('/css/flatpickr.css', express.static(__dirname + '/node_modules/flatpickr/dist/flatpickr.min.css') );
+
+/* js */
+app.use('/js/flatpickr.js', express.static(__dirname + '/node_modules/flatpickr/dist/flatpickr.min.js') );
+app.use('/js/flatpickr-fr.js', express.static(__dirname + '/node_modules/flatpickr/dist/l10n/fr.js') );
 
 /* middleware */
 // uncomment after placing your favicon in /public

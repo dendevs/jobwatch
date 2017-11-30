@@ -85,33 +85,33 @@
         <h3 class="subtitle is-3">Technologies</h3>
         <div class="field">
             <div class="control">
-                {{#checkbox values.technology}}
+                {{#checkbox values.technologies}}
                 <label class="checkbox">
-                    <input type="checkbox" name="technology" value="php">
+                    <input type="checkbox" name="technologies" value="php">
                     Php
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="technology" value="html">
+                    <input type="checkbox" name="technologies" value="html">
                     Html
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="technology" value="cpp">
+                    <input type="checkbox" name="technologies" value="cpp">
                     C++
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="technology" value="css">
+                    <input type="checkbox" name="technologies" value="css">
                     CSS 
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="technology" value="java">
+                    <input type="checkbox" name="technologies" value="java">
                     Java 
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="technology" value="sql">
+                    <input type="checkbox" name="technologies" value="sql">
                     SQL 
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="technology" value="dotnet">
+                    <input type="checkbox" name="technologies" value="dotnet">
                     .NET 
                 </label>
                 {{/checkbox}}
@@ -124,33 +124,33 @@
         <h3 class="subtitle is-3">Compétences</h3>
         <div class="field">
             <div class="control">
-                {{#checkbox values.skill}}
+                {{#checkbox values.skills}}
                 <label class="checkbox">
-                    <input type="checkbox" name="skill" value="analyse">
+                    <input type="checkbox" name="skills" value="analyse">
                     Analyse 
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="skill" value="test">
+                    <input type="checkbox" name="skills" value="test">
                     Tests
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="skill" value="teamworking"> 
+                    <input type="checkbox" name="skills" value="teamworking"> 
                     Travail en équipe
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="skill" value="autonomy">
+                    <input type="checkbox" name="skills" value="autonomy">
                     Autonomie
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="skill" value="writing">
+                    <input type="checkbox" name="skills" value="writing">
                     Rédaction 
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="skill" value="english">
+                    <input type="checkbox" name="skills" value="english">
                     Anglais
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="skill" value="dutch">
+                    <input type="checkbox" name="skills" value="dutch">
                     Néerlandais 
                 </label>
                 {{/checkbox}}
@@ -273,29 +273,31 @@
         <div class="field">
             <label class="label">Documents pour Postuler</label>
             <div class="control">
+                {{#checkbox values.applicationDocuments}}
                 <label class="checkbox">
-                    <input type="checkbox" name="applicationDocument" value="cv">
+                    <input type="checkbox" name="applicationDocuments" value="cv">
                     CV
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="applicationDocument" value="motivation">
+                    <input type="checkbox" name="applicationDocuments" value="motivation">
                     Lettre Motivation
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="applicationDocument" value="id">
+                    <input type="checkbox" name="applicationDocuments" value="id">
                     Carte Identitée 
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox" name="applicationDocument" value="certificate">
+                    <input type="checkbox" name="applicationDocuments" value="certificate">
                     Certificat Bonne Vie et Moeurs
                 </label>
+                {{/checkbox}}
             </div>
         </div>
         <!-- Date Limite -->
         <div class="field">
             <label class="label">Date Limite Candidature </label>
             <div class="control">
-                <input class="input" type="text" name="deadline" value="{{values.deadline}}" placeholder="Text input">
+                <input class="input" type="text" name="deadline" id="deadline" value="{{values.deadline}}" placeholder="Text input">
             </div>
         </div>
     </div>
@@ -310,3 +312,8 @@
         </div>
     </div>
 </form>
+
+
+<script type="application/javascript" src="/js/flatpickr.js"></script>
+<script type="application/javascript" src="/js/flatpickr-fr.js"></script>
+<script type="application/javascript">flatpickr("#deadline", { dateFormat: 'd/m/Y', locale: 'fr' } );</script>
