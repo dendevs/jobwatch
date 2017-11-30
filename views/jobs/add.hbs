@@ -85,6 +85,7 @@
         <h3 class="subtitle is-3">Technologies</h3>
         <div class="field">
             <div class="control">
+                {{#checkbox values.technology}}
                 <label class="checkbox">
                     <input type="checkbox" name="technology" value="php">
                     Php
@@ -113,6 +114,7 @@
                     <input type="checkbox" name="technology" value="dotnet">
                     .NET 
                 </label>
+                {{/checkbox}}
             </div>
         </div>
     </div>
@@ -122,6 +124,7 @@
         <h3 class="subtitle is-3">Compétences</h3>
         <div class="field">
             <div class="control">
+                {{#checkbox values.skill}}
                 <label class="checkbox">
                     <input type="checkbox" name="skill" value="analyse">
                     Analyse 
@@ -150,6 +153,7 @@
                     <input type="checkbox" name="skill" value="dutch">
                     Néerlandais 
                 </label>
+                {{/checkbox}}
             </div>
         </div>
     </div>

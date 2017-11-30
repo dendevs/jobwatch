@@ -26,7 +26,7 @@ router.post('/submit', [
         .withMessage('Le champ "Intitulé du Job" est obligatoire.'),
     check('jobUrl').exists()
         .custom( (value, {req} ) => typeof value == 'string' && value.length > 1 )
-        .withMessage('Le champ "Intitulé du Job" est obligatoire.'),
+        .withMessage('Le champ "Url de l\'Offre" est obligatoire.'),
     check('email').isEmail()
         .withMessage('Le champ "Email" du contact doit etre un email.').trim().normalizeEmail(),
     ], function(req, res, next) {
@@ -34,6 +34,7 @@ router.post('/submit', [
     const errors = validationResult(req);
     if( errors.isEmpty() ) 
     {
+        console.log( req.body );
         res.send('submit job' );
     }
     else

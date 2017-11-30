@@ -29,6 +29,19 @@ hbs.registerHelper('select', function( value, options ){
         $('[value='+value+']').attr('selected', 'selected');
     return $.html();
 });
+hbs.registerHelper('checkbox', function( value, options ){
+    const $ = cheerio.load(options.fn(this))
+    console.log( value );
+    if( value )
+    {
+        for( let i = 0 ; i < value.length ; i++ )
+        {
+            $('[value='+value[i]+']').attr('checked', 'checked');
+        }
+    }
+    return $.html();
+});
+
 
 /* css */
 app.use('/css/bulma.css', express.static(__dirname + '/node_modules/bulma/css/bulma.css') );
